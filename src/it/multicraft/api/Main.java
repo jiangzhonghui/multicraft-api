@@ -9,12 +9,11 @@ public class Main extends JavaPlugin{
 	
 	public void onLoad(){
 		i=this;
-		playerConfig=new Yaml(this, "players.yml");
-		playerConfig.saveConfig();
 	}
 	
 	public void onEnable(){
-		
+		playerConfig=new Yaml(this, "players.yml");
+		playerConfig.saveConfig();
 	}
 	
 	public void onDisable(){
