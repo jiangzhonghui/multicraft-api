@@ -6,6 +6,7 @@ public class Main extends JavaPlugin{
 	
 	public static Main i;
 	public Yaml playerConfig;
+
 	
 	public void onLoad(){
 		i=this;
