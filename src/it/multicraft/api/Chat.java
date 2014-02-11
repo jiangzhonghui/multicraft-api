@@ -1,5 +1,7 @@
 package it.multicraft.api;
 
+import it.multicraft.api.config.PlayersData;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -45,7 +47,7 @@ public class Chat{
 	 */
 	public static void broadcast(String nation, String message) {
 		for (Player player : Bukkit.getOnlinePlayers()) {
-			if (GeoIP.getCode(player).equals(nation)){
+			if (PlayersData.get(player.getName(), "code").equals(nation)){
 				Chat.genericMsg(player, message);
 			}
 		}

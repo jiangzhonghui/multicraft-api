@@ -8,6 +8,7 @@ public abstract class MCPlugin extends JavaPlugin{
 	
 	public MCPlugin(){
 		i=this;
+		MCPluginManager.addPlugin(this.getName(), this);
 	}
 	
 	public abstract void onEnable();
