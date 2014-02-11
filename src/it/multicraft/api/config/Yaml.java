@@ -1,4 +1,4 @@
-package it.multicraft.api;
+package it.multicraft.api.config;
 
 import java.io.File;
 import java.io.IOException;

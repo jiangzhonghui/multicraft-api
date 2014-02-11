@@ -1,5 +1,7 @@
 package it.multicraft.api;
 
+import it.multicraft.api.config.Yaml;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MCApi extends JavaPlugin{
