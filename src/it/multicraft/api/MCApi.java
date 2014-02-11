@@ -2,9 +2,9 @@ package it.multicraft.api;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin{
+public class MCApi extends JavaPlugin{
 	
-	public static Main i;
+	public static MCApi i;
 	public Yaml playerConfig;
 
 	
@@ -25,7 +25,7 @@ public class Main extends JavaPlugin{
 	 * Get the Main class instance
 	 * @return Main class instance
 	 */
-	public static Main getInstance(){
+	public static MCApi getInstance(){
 		return i;
 	}
 

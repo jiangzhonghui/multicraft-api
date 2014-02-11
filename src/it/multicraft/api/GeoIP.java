@@ -16,11 +16,11 @@ import com.google.gson.JsonParser;
 
 public class GeoIP {
 	
-	private Main plg;
+	private MCApi plg;
 	private static FileConfiguration plConfig;
 	
 	public GeoIP(){
-		plg=Main.getInstance();
+		plg=MCApi.getInstance();
 		plConfig=plg.playerConfig.getConfig();
 	}
 	
