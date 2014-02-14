@@ -1,22 +1,20 @@
 package it.multicraft.api;
 
-import it.multicraft.api.config.Yaml;
-
+import it.multicraft.api.config.PlayersData;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MCApi extends JavaPlugin{
 	
-	public static MCApi i;
-	public Yaml playerConfig;
-
+	private static MCApi i;
+	public PlayersData playersData;
+	
 	
 	public void onLoad(){
 		i=this;
 	}
 	
 	public void onEnable(){
-		playerConfig=new Yaml(this, "players.yml");
-		playerConfig.saveConfig();
+		playersData = new PlayersData();
 	}
 	
 	public void onDisable(){

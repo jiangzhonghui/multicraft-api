@@ -45,7 +45,7 @@ public class Utilities {
 	 * @return boolean
 	 */
 	public boolean isOnline(Player player) {
-		if(Bukkit.getPlayerExact(player.getName()) != null) {
+		if(Bukkit.getPlayerExact(player.getName())!=null) {
 			return true;
 		} else {
 			return false;

@@ -8,15 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class Chat{
-
-	/**
-	 * Sends a generic message to a player
-	 * @param who
-	 * @param message
-	 */
-	public static void genericMsg(CommandSender who, String message){
-		who.sendMessage(message);
-	}
 	
 	/**
 	 * Sends an error message (chatcolor: red) to a player
@@ -36,10 +27,6 @@ public class Chat{
 		who.sendMessage(ChatColor.GREEN+message);
 	}
 	
-	public static void broadcast(String message){
-		Bukkit.broadcastMessage(message);
-	}
-	
 	/**
 	 * Send a message to every player from a specific nation
 	 * @param nation
@@ -48,7 +35,7 @@ public class Chat{
 	public static void broadcast(String nation, String message) {
 		for (Player player : Bukkit.getOnlinePlayers()) {
 			if (PlayersData.get(player.getName(), "code").equals(nation)){
-				Chat.genericMsg(player, message);
+				player.sendMessage(message);
 			}
 		}
 	}
