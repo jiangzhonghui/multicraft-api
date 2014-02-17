@@ -8,7 +8,7 @@ public class MCPluginManager {
 
 	private static HashMap<String, MCPlugin> subPlugins;
 	
-	public MCPluginManager(){
+	public MCPluginManager(MCPlugin plugin){
 		subPlugins = new HashMap<String, MCPlugin>();
 	}
 	

@@ -1,6 +1,8 @@
 package it.multicraft.api;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -44,12 +46,37 @@ public class Utilities {
 	 * @param player
 	 * @return boolean
 	 */
-	public boolean isOnline(Player player) {
+	public static boolean isOnline(Player player) {
 		if(Bukkit.getPlayerExact(player.getName())!=null) {
 			return true;
 		} else {
 			return false;
 		}
+	}
+	
+	public static String locationToString(Location location){
+		return location.getWorld().getName()+","+location.getX()+","+location.getY()+","+location.getZ()+","+location.getPitch()+","+location.getYaw();
+	}
+	
+	public static Location stringToLocation(String string){
+		String[] a=string.split(","); 
+		return new Location(Bukkit.getWorld(a[0]), Double.parseDouble(a[1]), Double.parseDouble(a[2]), Double.parseDouble(a[3]), Float.parseFloat(a[4]), Float.parseFloat(a[5]));
+	}
+	
+	public static List<String> locationsToStrings(List<Location> locations){
+		List<String> temp = new ArrayList<String>();
+		for (Location l: locations){
+			temp.add(locationToString(l));
+		}
+		return temp;
+	}
+	
+	public static List<Location> stringsToLocations(List<String> strings){
+		List<Location> temp = new ArrayList<Location>();
+		for (String str: strings){
+			temp.add(stringToLocation(str));
+		}
+		return temp;
 	}
 	
 	
