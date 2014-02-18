@@ -59,15 +59,30 @@ public class Utilities {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param location
+	 * @return String
+	 */
 	public static String locationToString(Location location){
 		return location.getWorld().getName()+","+location.getX()+","+location.getY()+","+location.getZ()+","+location.getPitch()+","+location.getYaw();
 	}
 	
+	/**
+	 * 
+	 * @param string
+	 * @return String
+	 */
 	public static Location stringToLocation(String string){
 		String[] a=string.split(","); 
 		return new Location(Bukkit.getWorld(a[0]), Double.parseDouble(a[1]), Double.parseDouble(a[2]), Double.parseDouble(a[3]), Float.parseFloat(a[4]), Float.parseFloat(a[5]));
 	}
 	
+	/**
+	 * 
+	 * @param locations
+	 * @return ArrayList
+	 */
 	public static List<String> locationsToStrings(List<Location> locations){
 		List<String> temp = new ArrayList<String>();
 		for (Location l: locations){
@@ -76,6 +91,11 @@ public class Utilities {
 		return temp;
 	}
 	
+	/**
+	 * 
+	 * @param strings
+	 * @return ArrayList
+	 */
 	public static List<Location> stringsToLocations(List<String> strings){
 		List<Location> temp = new ArrayList<Location>();
 		for (String str: strings){
@@ -84,6 +104,11 @@ public class Utilities {
 		return temp;
 	}
 	
+	/**
+	 * 
+	 * @param invInventory
+	 * @return String
+	 */
 	public static String inventoryToString (Inventory invInventory){
         String serialization = invInventory.getSize() + ";";
         for (int i = 0; i < invInventory.getSize(); i++){
@@ -112,6 +137,11 @@ public class Utilities {
         return serialization;
     }
 	
+	/**
+	 * 
+	 * @param invString
+	 * @return Inventory
+	 */
 	public static Inventory StringToInventory (String invString){
         String[] serializedBlocks = invString.split(";");
         String invInfo = serializedBlocks[0];
