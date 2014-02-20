@@ -49,11 +49,11 @@ public class Arena {
 	}
 	
 	public String serialize(){
-		FileConfiguration conf = GamesManager.getInstance().arenasConf.getConfig();
+		FileConfiguration conf = GamesManager.getInstance().arenasConf;
 		conf.set("arenas."+name+".l1", Utilities.locationToString(l1));
-		conf.set("arenas."+name+"l2", Utilities.locationToString(l2));
+		conf.set("arenas."+name+".l2", Utilities.locationToString(l2));
 		conf.set("arenas."+name+".spawnpoints", Utilities.locationsToStrings(spawnpoints));
-		GamesManager.getInstance().arenasConf.saveConfig();
+		GamesManager.getInstance().arenasYaml.saveConfig();
 		return name;
 	}
 	

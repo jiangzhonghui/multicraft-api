@@ -1,7 +1,7 @@
 package it.multicraft.api;
 
 import it.multicraft.api.games.GamesManager;
-import it.multicraft.api.games.IManager;
+import it.multicraft.api.games.Manager;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,7 +20,7 @@ public abstract class MCPlugin extends JavaPlugin{
 	
 	public abstract void onReload();
 	
-	public void addGameManager(IManager manager){
+	public void addGameManager(Manager manager){
 		GamesManager.addManager(manager.getName(), manager);
 	}
 	
