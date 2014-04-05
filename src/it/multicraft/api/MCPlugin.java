@@ -1,16 +1,16 @@
 package it.multicraft.api;
 
-import it.multicraft.api.games.GamesManager;
-import it.multicraft.api.games.Manager;
+import it.multicraft.api.games.IManager;
+import static it.multicraft.api.MCApi.*;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
 public abstract class MCPlugin extends JavaPlugin{
 	
-	private static MCPlugin i;
+	private static MCPlugin instance;
 	
-	public MCPlugin(){
-		i=this;
+	public void onLoad(){
+		instance=this;
 		MCPluginManager.addPlugin(this.getName(), this);
 	}
 	
@@ -18,13 +18,15 @@ public abstract class MCPlugin extends JavaPlugin{
 	
 	public abstract void onDisable();
 	
-	public abstract void onReload();
+	public void onReload(){
+		
+	}
 	
-	public void addGameManager(Manager manager){
-		GamesManager.addManager(manager.getName(), manager);
+	public void addGameManager(IManager manager){
+		GAMESMANAGER().addManager(manager);
 	}
 	
 	public static MCPlugin getInstance(){
-		return i;
+		return instance;
 	}
 }

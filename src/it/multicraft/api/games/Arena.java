@@ -2,10 +2,11 @@ package it.multicraft.api.games;
 
 import java.util.List;
 
-import it.multicraft.api.Utilities;
+import it.multicraft.api.U;
 
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
+import static it.multicraft.api.MCApi.*;
 
 public class Arena {
 
@@ -41,7 +42,7 @@ public class Arena {
 	}
 	
 	public boolean isInArena(Location location){
-		if(Utilities.isInside(l1, l2, location)){
+		if(U.isInside(l1, l2, location)){
 			return true;
 		}else {
 			return false;
@@ -49,11 +50,11 @@ public class Arena {
 	}
 	
 	public String serialize(){
-		FileConfiguration conf = GamesManager.getInstance().arenasConf;
-		conf.set("arenas."+name+".l1", Utilities.locationToString(l1));
-		conf.set("arenas."+name+".l2", Utilities.locationToString(l2));
-		conf.set("arenas."+name+".spawnpoints", Utilities.locationsToStrings(spawnpoints));
-		GamesManager.getInstance().arenasYaml.saveConfig();
+		FileConfiguration conf = GAMESMANAGER().arenasConf;
+		conf.set("arenas."+name+".l1", U.locationToString(l1));
+		conf.set("arenas."+name+".l2", U.locationToString(l2));
+		conf.set("arenas."+name+".spawnpoints", U.locationsToStrings(spawnpoints));
+		GAMESMANAGER().arenasYaml.saveConfig();
 		return name;
 	}
 	

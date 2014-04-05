@@ -7,7 +7,9 @@ public abstract class MCSubcommand{
 	
 	public abstract String getSubcommandName();
 	
-	protected abstract MCCommandSender getCommandSenderType();
+	protected MCCommandSender commandSender(){
+		return MCCommandSender.GENERIC;
+	}
 	
 	protected abstract String getPermission();
 	

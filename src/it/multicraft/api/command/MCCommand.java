@@ -34,7 +34,7 @@ public abstract class MCCommand implements CommandExecutor{
 		if(!snd.hasPermission(mcsc.getPermission())){
 			return false;
 		}
-		if (!mcsc.getCommandSenderType().equals(parseSender(snd, mcsc))){
+		if (!mcsc.commandSender().equals(parseSender(snd, mcsc))){
 			Chat.errorMsg(snd, "Wrong command sender!");
 			return true;
 		}
@@ -48,7 +48,7 @@ public abstract class MCCommand implements CommandExecutor{
 	}
 	
 	private MCCommandSender parseSender(CommandSender s, MCSubcommand mcsc){
-		if (mcsc.getCommandSenderType().equals(MCCommandSender.GENERIC)){
+		if (mcsc.commandSender().equals(MCCommandSender.GENERIC) || mcsc.commandSender().equals(null)){
 			return MCCommandSender.GENERIC;
 		}
 		else if (s instanceof ConsoleCommandSender){

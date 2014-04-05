@@ -6,6 +6,8 @@ import java.util.List;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import it.multicraft.api.MCApi;
+import it.multicraft.api.config.Yaml;
+import static it.multicraft.api.MCApi.*;
 
 public class PlayersData {
 
@@ -14,7 +16,7 @@ public class PlayersData {
 	private MCApi main;
 	
 	public PlayersData(){
-		this.main=MCApi.getInstance();
+		this.main=API();
 		playersYaml= new Yaml(main, "players.yml");
 		playersYaml.saveDefaultConfig();
 		playersConfig=playersYaml.getConfig();
@@ -28,17 +30,17 @@ public class PlayersData {
 		return l;
 	}
 	
-	public static void set(String name, String path, Object value){
-		playersConfig.set("p."+name+"."+path, value);
+	public static void set(String uuid, String path, Object value){
+		playersConfig.set("p."+uuid+"."+path, value);
 		playersYaml.saveConfig();
 	}
 	
-	public static Object get(String name, String path){
-		return playersConfig.get("p."+name+"."+path);
+	public static Object get(String uuid, String path){
+		return playersConfig.get("p."+uuid+"."+path);
 	}
 	
-	public static boolean contains(String name, String path){
-		if(playersConfig.contains("p."+name+"."+path)){
+	public static boolean contains(String uuid, String path){
+		if(playersConfig.contains("p."+uuid+"."+path)){
 			return true;
 		}else{
 			return false;
